@@ -1,0 +1,28 @@
+.header {
+    padding: 8px 0;
+    display: flex;
+    justify-content: space-around;
+    background-color: #0000ff;
+}
+
+.form {
+    position: relative;
+}
+
+.input {
+    padding: 8px;
+    padding-left: 32px;
+    width: 320px;
+}
+
+.button {
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    width: fit-content;
+    height: fit-content;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
