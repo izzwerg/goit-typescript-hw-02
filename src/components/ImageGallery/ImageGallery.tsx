@@ -3,7 +3,10 @@ import ImageCard from "./ImageCard/ImageCard";
 import css from "./ImageGallery.module.css";
 import { GalleryProps } from "./ImageGallery.types";
 
-const ImageGallery:React.FC<GalleryProps> = ({ photos, handleSelectPhoto }) => {
+const ImageGallery: React.FC<GalleryProps> = ({
+  photos,
+  handleSelectPhoto,
+}) => {
   const elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

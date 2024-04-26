@@ -41,7 +41,7 @@ function App() {
     }
   }, [searchTerm, page]);
 
-  const onSubmit = (query:string):void => {
+  const onSubmit = (query: string): void => {
     setPhotos(null);
     setPage(1);
     setSearchTerm(query);
@@ -55,12 +55,12 @@ function App() {
     setIsOpen(true);
   };
 
-  const handleSelectPhoto = (photo:ImgProps):void => {
+  const handleSelectPhoto = (photo: ImgProps): void => {
     setSelectedImg(photo);
     openModal();
   };
 
-  const closeModal = ():void => {
+  const closeModal = (): void => {
     setIsOpen(false);
   };
 
