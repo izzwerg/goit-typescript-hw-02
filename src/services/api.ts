@@ -11,6 +11,6 @@ export const getImg = async ({ searchTerm, page }:RequestParamsProps):Promise<Ax
     per_page: 6,
     page: page,
   };
-  const data = await axios.get<ReturnTypes>(`/search/photos?${params}`);
+  const data = await axios.get<ReturnTypes>(`/search/photos`, {params});
   return data;
 };

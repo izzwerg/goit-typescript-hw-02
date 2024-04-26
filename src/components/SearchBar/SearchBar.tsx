@@ -10,8 +10,8 @@ function SearchBar({ onSubmit }: OnSubmitProps) {
   const onHandleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const searchTerm = inputRef.current?.value;
-    if (searchTerm === undefined) {
+    const searchTerm = inputRef.current?.value.trim();
+    if (searchTerm === undefined || searchTerm == "") {
       toast('Please specify what you want to find', {
         icon: '🔍',
       });
