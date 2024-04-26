@@ -1,8 +1,8 @@
 import css from "./LoadMoreBtn.module.css";
+import { LoadMoreBtnProps } from "./LoadMoreBtn.types";
 
-const LoadMoreBtn = ({ loadMore }) => {
-
-  const handleClick = async () => {
+const LoadMoreBtn: React.FC<LoadMoreBtnProps> = ({ loadMore }) => {
+  const handleClick: React.MouseEventHandler<HTMLButtonElement> = async () => {
     try {
       await loadMore();
     } catch (error) {
