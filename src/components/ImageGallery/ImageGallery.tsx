@@ -1,9 +1,10 @@
 import { useEffect, useRef } from "react";
-import ImageCard from "./ImageCard/ImageCard.jsx";
+import ImageCard from "./ImageCard/ImageCard";
 import css from "./ImageGallery.module.css";
+import { GalleryProps } from "./ImageGallery.types";
 
-const ImageGallery = ({ photos, handleSelectPhoto }) => {
-  const elementRef = useRef(null);
+const ImageGallery:React.FC<GalleryProps> = ({ photos, handleSelectPhoto }) => {
+  const elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (elementRef.current) {
