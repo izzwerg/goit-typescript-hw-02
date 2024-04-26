@@ -1,16 +1,17 @@
 import css from "./SearchBar.module.css";
 import { MdSearch } from "react-icons/md";
-import { useRef } from "react";
+import { FormEvent, useRef } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { OnSubmitProps } from "./SearchBar.types";
 
-function SearchBar({ onSubmit }) {
-  const inputRef = useRef(null);
+function SearchBar({ onSubmit }: OnSubmitProps) {
+  const inputRef = useRef<HTMLInputElement>(null);
 
-  const onHandleSubmit = (event) => {
+  const onHandleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const searchTerm = inputRef.current.value;
-    if (searchTerm === "") {
+    const searchTerm = inputRef.current?.value;
+    if (searchTerm === undefined) {
       toast('Please specify what you want to find', {
         icon: '🔍',
       });
