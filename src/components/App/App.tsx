@@ -1,22 +1,23 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import SearchBar from "./components/SearchBar/SearchBar";
-import { getImg } from "./services/api";
-import ImageGallery from "./components/ImageGallery/ImageGallery.jsx";
-import ErrorMessage from "./components/ErrorMessage/ErrorMessage.jsx";
-import Loader from "./components/Loader/Loader.jsx";
-import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn.jsx";
-import ImageModal from "./components/ImageModal/ImageModal.jsx";
+import { ImgProps } from "./App.types";
+import SearchBar from "../SearchBar/SearchBar";
+import { getImg } from "../../services/api";
+import ImageGallery from "../ImageGallery/ImageGallery";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import Loader from "../Loader/Loader.jsx";
+import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
+import ImageModal from "../ImageModal/ImageModal";
 
 function App() {
-  const [photos, setPhotos] = useState(null);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [page, setPage] = useState(1);
-  const [isError, setIsError] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [modalIsOpen, setIsOpen] = useState(false);
-  const [selectedImg, setSelectedImg] = useState(null);
-  const [totalPages, setTotalPages] = useState(0);
+  const [photos, setPhotos] = useState<ImgProps[] | null>(null);
+  const [searchTerm, setSearchTerm] = useState<string>("");
+  const [page, setPage] = useState<number>(1);
+  const [isError, setIsError] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [modalIsOpen, setIsOpen] = useState<boolean>(false);
+  const [selectedImg, setSelectedImg] = useState<ImgProps | null>(null);
+  const [totalPages, setTotalPages] = useState<number>(0);
 
   useEffect(() => {
     async function fetchData() {
@@ -40,7 +41,7 @@ function App() {
     }
   }, [searchTerm, page]);
 
-  const onSubmit = (query) => {
+  const onSubmit = (query:string):void => {
     setPhotos(null);
     setPage(1);
     setSearchTerm(query);
@@ -54,12 +55,12 @@ function App() {
     setIsOpen(true);
   };
 
-  const handleSelectPhoto = (photo) => {
+  const handleSelectPhoto = (photo:ImgProps):void => {
     setSelectedImg(photo);
     openModal();
   };
 
-  const closeModal = () => {
+  const closeModal = ():void => {
     setIsOpen(false);
   };
 
